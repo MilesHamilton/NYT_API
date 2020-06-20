@@ -1,6 +1,6 @@
 from peewee import *
-from playhouse.shortcuts import model_to_dict, dict_to_model
-import json
+from seed import data
+
 # from typing import Iterator, Dict, Any, get
 
 db = PostgresqlDatabase('books', user='postgres',
@@ -22,10 +22,8 @@ db.connect()
 db.drop_tables([Books])
 db.create_tables([Books])
 
-b = open('../popular_books.json')
-data = json.load(b)
-for books in data['results']:
-    print(books)
+Books(author="Miles Hamilton", title="RedRising",
+      description="things happening").save()
 # b.close()
 
 with db.atomic():
