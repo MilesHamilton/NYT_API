@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, session
 from playhouse.shortcuts import model_to_dict, dict_to_model
 from models import Books
 
@@ -22,8 +22,10 @@ def endpoint(id=None):
         new_book.save()
         return jsonify({"success": True})
 
-    if request.method == 'DELETE':
-        return 'DELETE request'
+    # if request.method == 'DELETE':
+    #     user = Books.query.get_or_404(id)
+    #     user.deleted = True
+    #     return Books.session.commit()
 
 
 app.run(debug=True)
