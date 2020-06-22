@@ -1,4 +1,4 @@
-# New York Times Books RESTFUL API
+# New York Times Books API made with Python and Flask
 
 A list of 20 all time most popular books from New York Times
 
@@ -11,11 +11,9 @@ A list of 20 all time most popular books from New York Times
 
 ## Run the tests
 
-# REST API
+example app is described below.
 
-The REST API to the example app is described below.
-
-## Get A Specific Thing
+## Get a Specific Thing
 
 ### Request
 

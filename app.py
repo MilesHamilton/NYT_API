@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/<id>', methods=['GET', 'DELETE'])
+@app.route('/<id>', methods=['GET'])
 def endpoint(id=None):
     if request.method == 'GET':
         if id:
@@ -21,11 +21,6 @@ def endpoint(id=None):
         new_book = dict_to_model(Books, request.get_json())
         new_book.save()
         return jsonify({"success": True})
-
-    # if request.method == 'DELETE':
-    #     user = Books.query.get_or_404(id)
-    #     user.deleted = True
-    #     return Books.session.commit()
 
 
 app.run(debug=True)

@@ -22,10 +22,6 @@ db.connect()
 db.drop_tables([Books])
 db.create_tables([Books])
 
-# Books(author="Miles Hamilton", title="RedRising",
-#       description="things happening").save()
-# b.close()
-
 with db.atomic():
     Books.insert_many(data['results'], fields=[
                       Books.title, Books.description, Books.author]).execute()
